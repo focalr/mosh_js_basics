@@ -12,24 +12,30 @@ let lastName = undefined;
 
 typeof lastName; //typeof operator (finds variable type)
 
+/*
+***************************************************************
+*/
+// object
+let person = {
 
-    // object
-    let person = {
+    name: 'Randy',
+    age: 38
 
-        name: 'Randy',
-        age: 38
+}; //object literals
 
-    }; //object literals
+//dot notation
+person.name = 'Randall';
 
-    //dot notation
-    person.name = 'Randall';
+console.log(person.name);
 
-    console.log(person.name);
+//bracket notation
+person['age'] = 38.5;
 
-    //bracket notation
-    person['age'] = 38.5;
+console.log(person['age']);
 
-    console.log(person['age']);
+/*
+**************************************************************
+*/
 
 //arrays
 let selectedColors = ['red', 'blue']; //array literal
@@ -52,6 +58,10 @@ console.log(selectedColors.length);
     }
 
     console.log(square(2));
+
+/*
+********************************************************************
+*/
 
 /*
 operators (arithmetic, assignment, comparison
@@ -120,6 +130,36 @@ console.log("0" === 0);//(FALSE)
 //returns "TRUE" if both operands are true
 console.log(true && true); //TRUE
 console.log(true && false); //FALSE
+
+let highIncome = true;
+let goodCredit = true;
+let eligibleForLoan = highIncome && goodCredit;
+
+console.log(eligibleForLoan); //returns TRUE
+
+//OR (||)
+//returns TRUE if one of the operands returns TRUE
+let highIncome = false;
+let goodCredit = true;
+let eligibleForLoan = highIncome || goodCredit;
+
+console.log('eligible', eligibleForLoan); //still returns TRUE
+
+//NOT (!)
+let applicationRefused = !eligibleForLoan;
+// "!" converts to opposite, so eligibleForLoan = TRUE, so ! converts to FALSE
+
+//logical operators with Non-booleans
+//Falsy (not exactly false)
+//undefined, null, 0, false, '', NaN
+//anything not falsy is Truthy
+let userColor = 'red';
+let defaultColor = 'blue';
+let currentColor = userColor || defaultColor;
+
+
+
+
 
 
 
