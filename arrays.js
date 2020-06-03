@@ -273,7 +273,7 @@ const itemsNum = numero
     .filter(n => n >= 0)
     .map(n => ({ value: n}));
 
-console.log(itemsNum);
+console.log(itemsNum); //returns [{value: 2}, {value: 3}]
 
 
 //.reduce() reduces an array to a single value
