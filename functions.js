@@ -158,7 +158,7 @@ try{
     personOne.fullName = 'Randall';
 }
 catch (e){
-    console.log(e);
+    console.log(e.message);
 }
 
 console.log(personOne);
@@ -170,4 +170,66 @@ console.log(personOne);
 
 //Local vs Global Scope
 
-//
+//variables are only accessible within the blocks they are defined (LOCAL)
+
+//variables outside of code blocks have GLOBAL scope
+//LOCAL variables take precedence over GLOBAL variables within a function
+//try to avoid declaring GLOBAL variables
+
+
+/**
+*************************************************************** 
+*/
+
+
+//'THIS' keyword
+//'this' represents the object that is executing the current function
+
+//if reference is inside method of function => represents the obj
+//if reference is inside function => represents the global object (window in browsers, global in NODE)
+
+//EX: because 'play' is a method within 'video' obj, 'THIS' references the 'video' object
+const video = {
+    title : 'a',
+    play(){
+        console.log(this);
+    }
+};
+
+//because playVideo is global function, 'this' references the window obj so....
+function playVideo(){
+    console.log(this);
+}
+
+//instead, create a "NEW" object with constructor function
+function Video(title){
+    this.title = title;
+    console.log(this);
+}
+
+video.play();
+
+//NEW operator references new empty object
+const v = new Video('b'); //new object
+
+
+/**
+************************************************************ 
+*/
+
+//.CALL() method
+//changes the value of 'THIS'
+//.APPLY() method
+//changes the value of 'THIS'
+//only difference is how you pass arguments with them, apply uses an array
+
+//.BIND() binds that value to every call of the function
+
+
+//starting ES6, arrow functions inherit 'THIS'
+playVideo.call( {name: 'Randall'} );
+playVideo.apply( {name: 'Randy'} );
+playVideo.bind( {name : 'Rand'} );
+
+
+
